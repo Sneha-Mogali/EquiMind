@@ -1,0 +1,116 @@
+import random
+import uuid
+from datetime import datetime, timezone
+from entities import get_random_entity, update_entity_score
+from scorer import compute_risk_score
+from models import predict
+
+LOCATIONS = [
+    "Mumbai, IN", "Pune, IN", "Delhi, IN", "Bangalore, IN",
+    "Frankfurt, DE", "New York, US", "London, UK", "Tokyo, JP",
+    "TOR Exit Node", "Unknown Proxy",
+]
+
+IPS = [
+    "192.168.1.101", "10.0.0.45", "172.16.0.23",
+    "185.220.101.45", "94.102.49.190", "45.33.32.156",
+    "198.51.100.77",  "203.0.113.42",
+]
+
+EVENT_TYPES = [
+    "normal_login", "off_hours_access", "impossible_travel",
+    "bulk_download", "privilege_escalation", "lateral_movement",
+    "credential_sharing", "device_posture_failure",
+    "recon_probe", "c2_beacon", "data_exfiltration", "new_device",
+]
+
+SEVERITIES = {
+    "ALLOW":     "LOW",
+    "CHALLENGE": "MEDIUM",
+    "RESTRICT":  "HIGH",
+    "BLOCK":     "CRITICAL",
+}
+
+KILL_CHAIN_PHASES = [
+    "Recon", "Weaponize", "Deliver", "Exploit", "Persist", "Exfil"
+]
+
+active_incidents = {}
+
+def generate_event() -> dict:
+    entity       = get_random_entity()
+    event_type   = random.choice(EVENT_TYPES)
+    location     = random.choice(LOCATIONS)
+    src_ip       = random.choice(IPS)
+    hour         = datetime.now().hour
+    is_offhours  = hour < 7 or hour > 21
+    device_ok    = random.random() > 0.15
+    mfa_used     = random.random() > 0.20
+    location_known = location in [entity["location"], "Internal"]
+
+    # Fake features for model input
+    features = {
+        "dur":         round(random.uniform(0.1, 300.0), 2),
+        "sbytes":      random.randint(100, 5000000),
+        "dbytes":      random.randint(100, 2000000),
+        "rate":        round(random.uniform(0.1, 1000.0), 2),
+        "sttl":        random.choice([64, 128, 255, 32]),
+        "dttl":        random.choice([64, 128, 255, 32]),
+        "sload":       round(random.uniform(0, 1000000), 2),
+        "dload":       round(random.uniform(0, 1000000), 2),
+        "ct_srv_src":  random.randint(1, 50),
+        "ct_dst_ltm":  random.randint(1, 50),
+    }
+
+    prediction = predict(features)
+
+    score_result = compute_risk_score(
+        attack_cat       = prediction["attack_cat"],
+        confidence       = prediction["confidence"],
+        is_offhours      = is_offhours,
+        device_ok        = device_ok,
+        mfa_used         = mfa_used,
+        location_known   = location_known,
+        behavioral_anomaly = prediction["anomaly_score"],
+    )
+
+    prev_score = entity["risk_score"]
+    update_entity_score(entity["id"], score_result["risk_score"])
+
+    # Kill chain tracking
+    kill_chain_id    = None
+    kill_chain_step  = None
+    kill_chain_phase = None
+
+    if score_result["decision"] in ["RESTRICT", "BLOCK"]:
+        inc_id = f"inc_{entity['id']}"
+        if inc_id not in active_incidents:
+            active_incidents[inc_id] = {"step": 0}
+        step = active_incidents[inc_id]["step"]
+        active_incidents[inc_id]["step"] = min(step + 1, 5)
+        kill_chain_id    = inc_id
+        kill_chain_step  = step
+        kill_chain_phase = KILL_CHAIN_PHASES[step]
+
+    return {
+        "id":              f"evt_{uuid.uuid4().hex[:8]}",
+        "timestamp":       datetime.now(timezone.utc).isoformat(),
+        "severity":        SEVERITIES[score_result["decision"]],
+        "attack_cat":      prediction["attack_cat"],
+        "type":            event_type,
+        "user":            entity["name"],
+        "device":          entity["device"],
+        "src_ip":          src_ip,
+        "location":        location,
+        "risk_score":      score_result["risk_score"],
+        "prev_score":      prev_score,
+        "trust_reserve":   entity["trust_reserve"],
+        "score_breakdown": score_result["score_breakdown"],
+        "decision":        score_result["decision"],
+        "confidence":      prediction["confidence"],
+        "explanation":     score_result["explanation"],
+        "kill_chain_id":   kill_chain_id,
+        "kill_chain_step": kill_chain_step,
+        "kill_chain_phase": kill_chain_phase,
+        "model_version":   "1.0.0",
+    }

@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+scikit-learn
+pandas
+numpy
+joblib
+shap
+python-dotenv
+apscheduler
+pydantic
+websockets
