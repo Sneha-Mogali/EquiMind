@@ -1,0 +1,44 @@
+categorical_cols = ["proto", "service", "state", "attack_cat"]
+
+robust_features = [
+    "sbytes", "dbytes",
+    "stcpb", "dtcpb",
+    "response_body_len",
+    "sloss", "dloss"
+]
+
+standard_features = [
+    "spkts", "dpkts",
+    "swin", "dwin",
+    "dmean",
+    "ct_src_dport_ltm",
+    "ct_dst_sport_ltm",
+    "trans_depth",
+    "ct_ftp_cmd",
+    "ct_flw_http_mthd"
+]
+
+binary_features = [
+    "is_ftp_login",
+    "is_sm_ips_ports"
+]
+
+flow_features = [
+    "dur", "rate", "sload", "dload",
+    "sinpkt", "dinpkt",
+    "sjit", "djit",
+    "tcprtt", "synack", "ackdat"
+]
+
+
+x_dict = {
+    "proto": x_train["proto"].astype(str).values,
+    "service": x_train["service"].astype(str).values,
+    "state": x_train["state"].astype(str).values,
+    "attack_cat": x_train["attack_cat"].astype(str).values,
+
+    "standard": x_train[standard_features].values.astype("float32"),
+    "robust": x_train[robust_features].values.astype("float32"),
+    "flow": x_train[flow_features].values.astype("float32"),
+    "binary": x_train[binary_features].values.astype("float32"),
+}
