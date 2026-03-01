@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap');
+
+:root {
+  --bg-base:      #00060f;
+  --bg-panel:     #010c18;
+  --bg-elevated:  #021120;
+  --bg-hover:     #031830;
+
+  --cyan:         #00f5ff;
+  --cyan-dim:     #00a8b5;
+  --cyan-glow:    rgba(0,245,255,0.15);
+
+  --red:          #ff1744;
+  --red-dim:      #b71c3a;
+  --red-glow:     rgba(255,23,68,0.15);
+
+  --amber:        #ffab00;
+  --amber-dim:    #b57800;
+  --amber-glow:   rgba(255,171,0,0.15);
+
+  --green:        #00e676;
+  --green-dim:    #00a152;
+  --green-glow:   rgba(0,230,118,0.15);
+
+  --text-primary:   #e0f0ff;
+  --text-secondary: #7aa0c0;
+  --text-dim:       #2a4a6a;
+
+  --border-base:   #0a2040;
+  --border-active: rgba(0,245,255,0.3);
+
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-display: 'Orbitron', sans-serif;
+  --font-body:    'Exo 2', sans-serif;
+}

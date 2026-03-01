@@ -1,0 +1,159 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "EquiMind Zero Trust Security Dashboard",
+    "tags": ["equimind", "security", "zerotrust"],
+    "style": "dark",
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "System Status",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "up{job=\"equimind-risk-engine\"}",
+            "legendFormat": "Backend Status"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "thresholds": {
+              "steps": [
+                {"color": "red", "value": 0},
+                {"color": "green", "value": 1}
+              ]
+            },
+            "mappings": [
+              {"options": {"0": {"text": "DOWN"}}, "type": "value"},
+              {"options": {"1": {"text": "UP"}}, "type": "value"}
+            ]
+          }
+        },
+        "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0}
+      },
+      {
+        "id": 2,
+        "title": "Active WebSocket Connections",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "equimind_websocket_connections",
+            "legendFormat": "Connections"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "unit": "short"
+          }
+        },
+        "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0}
+      },
+      {
+        "id": 3,
+        "title": "Total Security Events",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "sum(equimind_events_total)",
+            "legendFormat": "Total Events"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "unit": "short"
+          }
+        },
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0}
+      },
+      {
+        "id": 4,
+        "title": "ML Prediction Latency",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "rate(equimind_ml_prediction_seconds_sum[5m]) / rate(equimind_ml_prediction_seconds_count[5m])",
+            "legendFormat": "Avg Latency"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "unit": "s"
+          }
+        },
+        "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0}
+      },
+      {
+        "id": 5,
+        "title": "Security Events by Severity",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "sum by (severity) (equimind_events_total)",
+            "legendFormat": "{{severity}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 4}
+      },
+      {
+        "id": 6,
+        "title": "Events by Decision Type",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "sum by (decision) (equimind_events_total)",
+            "legendFormat": "{{decision}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 4}
+      },
+      {
+        "id": 7,
+        "title": "Risk Score Distribution",
+        "type": "histogram",
+        "targets": [
+          {
+            "expr": "equimind_risk_score_bucket",
+            "legendFormat": "Risk Score"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 12}
+      },
+      {
+        "id": 8,
+        "title": "Event Rate Over Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(equimind_events_total[1m])",
+            "legendFormat": "Events/sec"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 20}
+      },
+      {
+        "id": 9,
+        "title": "Entity Risk Scores",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "equimind_entity_risk_score",
+            "legendFormat": "{{entity_name}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 20}
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "5s"
+  }
+}

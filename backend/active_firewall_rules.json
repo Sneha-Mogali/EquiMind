@@ -1,0 +1,1152 @@
+[
+  {
+    "id": "restrict_u11_http",
+    "action": "DENY",
+    "entity_id": "u11",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:50:01.338881+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u11_https",
+    "action": "DENY",
+    "entity_id": "u11",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:50:01.342048+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u11_ssh",
+    "action": "DENY",
+    "entity_id": "u11",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:50:01.348721+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u11_ftp",
+    "action": "DENY",
+    "entity_id": "u11",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:50:01.352334+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u11_smtp",
+    "action": "DENY",
+    "entity_id": "u11",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:50:01.352334+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u11_pop3",
+    "action": "DENY",
+    "entity_id": "u11",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:50:01.361232+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u11_imap",
+    "action": "DENY",
+    "entity_id": "u11",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:50:01.364587+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s04_http",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:50:44.630883+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s04_https",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:50:44.630883+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s04_ssh",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:50:44.638986+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s04_ftp",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:50:44.641660+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s04_smtp",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:50:44.649440+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s04_pop3",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:50:44.652477+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s04_imap",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:50:44.659029+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u02_http",
+    "action": "DENY",
+    "entity_id": "u02",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:51:06.562955+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u02_https",
+    "action": "DENY",
+    "entity_id": "u02",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:51:06.571157+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u02_ssh",
+    "action": "DENY",
+    "entity_id": "u02",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:51:06.571157+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u02_ftp",
+    "action": "DENY",
+    "entity_id": "u02",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:51:06.582098+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u02_smtp",
+    "action": "DENY",
+    "entity_id": "u02",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:51:06.582098+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u02_pop3",
+    "action": "DENY",
+    "entity_id": "u02",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:51:06.593437+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u02_imap",
+    "action": "DENY",
+    "entity_id": "u02",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:51:06.598818+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u04_http",
+    "action": "DENY",
+    "entity_id": "u04",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:51:28.232327+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u04_https",
+    "action": "DENY",
+    "entity_id": "u04",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:51:28.243018+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u04_ssh",
+    "action": "DENY",
+    "entity_id": "u04",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:51:28.249106+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u04_ftp",
+    "action": "DENY",
+    "entity_id": "u04",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:51:28.253174+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u04_smtp",
+    "action": "DENY",
+    "entity_id": "u04",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:51:28.259320+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u04_pop3",
+    "action": "DENY",
+    "entity_id": "u04",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:51:28.269240+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u04_imap",
+    "action": "DENY",
+    "entity_id": "u04",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:51:28.274561+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u08_http",
+    "action": "DENY",
+    "entity_id": "u08",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:52:22.517238+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u08_https",
+    "action": "DENY",
+    "entity_id": "u08",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:52:22.528930+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u08_ssh",
+    "action": "DENY",
+    "entity_id": "u08",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:52:22.532143+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u08_ftp",
+    "action": "DENY",
+    "entity_id": "u08",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:52:22.539094+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u08_smtp",
+    "action": "DENY",
+    "entity_id": "u08",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:52:22.549641+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u08_pop3",
+    "action": "DENY",
+    "entity_id": "u08",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:52:22.549641+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u08_imap",
+    "action": "DENY",
+    "entity_id": "u08",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:52:22.561654+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u06_ssh",
+    "action": "DENY",
+    "entity_id": "u06",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:53:05.695540+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u06_ftp",
+    "action": "DENY",
+    "entity_id": "u06",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:53:05.755343+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u06_admin",
+    "action": "DENY",
+    "entity_id": "u06",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T05:53:05.812894+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u13_http",
+    "action": "DENY",
+    "entity_id": "u13",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:53:49.752954+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u13_https",
+    "action": "DENY",
+    "entity_id": "u13",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:53:49.753525+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u13_ssh",
+    "action": "DENY",
+    "entity_id": "u13",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:53:49.770055+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u13_ftp",
+    "action": "DENY",
+    "entity_id": "u13",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:53:49.775117+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u13_smtp",
+    "action": "DENY",
+    "entity_id": "u13",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:53:49.786298+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u13_pop3",
+    "action": "DENY",
+    "entity_id": "u13",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:53:49.795995+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u13_imap",
+    "action": "DENY",
+    "entity_id": "u13",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:53:49.804780+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u14_http",
+    "action": "DENY",
+    "entity_id": "u14",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:54:11.645516+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u14_https",
+    "action": "DENY",
+    "entity_id": "u14",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:54:11.647399+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u14_ssh",
+    "action": "DENY",
+    "entity_id": "u14",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:54:11.657815+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u14_ftp",
+    "action": "DENY",
+    "entity_id": "u14",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:54:11.669281+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u14_smtp",
+    "action": "DENY",
+    "entity_id": "u14",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:54:11.676736+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u14_pop3",
+    "action": "DENY",
+    "entity_id": "u14",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:54:11.687618+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u14_imap",
+    "action": "DENY",
+    "entity_id": "u14",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:54:11.687618+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u03_http",
+    "action": "DENY",
+    "entity_id": "u03",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:54:33.296221+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u03_https",
+    "action": "DENY",
+    "entity_id": "u03",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:54:33.303771+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u03_ssh",
+    "action": "DENY",
+    "entity_id": "u03",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:54:33.317687+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u03_ftp",
+    "action": "DENY",
+    "entity_id": "u03",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:54:33.325176+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u03_smtp",
+    "action": "DENY",
+    "entity_id": "u03",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:54:33.335768+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u03_pop3",
+    "action": "DENY",
+    "entity_id": "u03",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:54:33.346771+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u03_imap",
+    "action": "DENY",
+    "entity_id": "u03",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:54:33.358928+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u05_http",
+    "action": "DENY",
+    "entity_id": "u05",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:54:54.935510+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u05_https",
+    "action": "DENY",
+    "entity_id": "u05",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:54:54.945618+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u05_ssh",
+    "action": "DENY",
+    "entity_id": "u05",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:54:54.954610+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u05_ftp",
+    "action": "DENY",
+    "entity_id": "u05",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:54:54.964687+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u05_smtp",
+    "action": "DENY",
+    "entity_id": "u05",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:54:54.974929+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u05_pop3",
+    "action": "DENY",
+    "entity_id": "u05",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:54:54.983108+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u05_imap",
+    "action": "DENY",
+    "entity_id": "u05",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:54:54.993857+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s01_http",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:55:38.708952+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s01_https",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:55:38.719234+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s01_ssh",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:55:38.735233+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s01_ftp",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:55:38.742603+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s01_smtp",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:55:38.751677+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s01_pop3",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:55:38.767053+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s01_imap",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:55:38.780427+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s03_ssh",
+    "action": "DENY",
+    "entity_id": "s03",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:55:57.600990+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s03_ftp",
+    "action": "DENY",
+    "entity_id": "s03",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:55:57.668496+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s03_admin",
+    "action": "DENY",
+    "entity_id": "s03",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T05:55:57.729576+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s02_http",
+    "action": "DENY",
+    "entity_id": "s02",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:56:45.449263+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s02_https",
+    "action": "DENY",
+    "entity_id": "s02",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:56:45.455690+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s02_ssh",
+    "action": "DENY",
+    "entity_id": "s02",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:56:45.471426+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s02_ftp",
+    "action": "DENY",
+    "entity_id": "s02",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:56:45.481752+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s02_smtp",
+    "action": "DENY",
+    "entity_id": "s02",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:56:45.492098+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s02_pop3",
+    "action": "DENY",
+    "entity_id": "s02",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:56:45.502496+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_s02_imap",
+    "action": "DENY",
+    "entity_id": "s02",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:56:45.512900+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u07_http",
+    "action": "DENY",
+    "entity_id": "u07",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:57:07.583147+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u07_https",
+    "action": "DENY",
+    "entity_id": "u07",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:57:07.590953+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u07_ssh",
+    "action": "DENY",
+    "entity_id": "u07",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:57:07.609674+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u07_ftp",
+    "action": "DENY",
+    "entity_id": "u07",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:57:07.623648+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u07_smtp",
+    "action": "DENY",
+    "entity_id": "u07",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:57:07.631955+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u07_pop3",
+    "action": "DENY",
+    "entity_id": "u07",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:57:07.647774+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u07_imap",
+    "action": "DENY",
+    "entity_id": "u07",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:57:07.663807+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_http",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "http",
+    "protocol": "tcp",
+    "port": 80,
+    "created_at": "2026-03-01T05:57:52.000372+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_https",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "https",
+    "protocol": "tcp",
+    "port": 443,
+    "created_at": "2026-03-01T05:57:52.010838+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_ssh",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T05:57:52.021954+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_ftp",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T05:57:52.040394+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_smtp",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "smtp",
+    "protocol": "any",
+    "port": 25,
+    "created_at": "2026-03-01T05:57:52.053341+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_pop3",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "pop3",
+    "protocol": "any",
+    "port": 110,
+    "created_at": "2026-03-01T05:57:52.065125+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_imap",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "imap",
+    "protocol": "any",
+    "port": 143,
+    "created_at": "2026-03-01T05:57:52.082065+00:00",
+    "reason": "Isolation: Network isolation due to high risk"
+  },
+  {
+    "id": "restrict_u16_ssh",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T06:02:54.230679+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u16_ftp",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T06:02:54.324137+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u16_admin",
+    "action": "DENY",
+    "entity_id": "u16",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T06:02:54.418027+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u10_ssh",
+    "action": "DENY",
+    "entity_id": "u10",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T06:13:45.292187+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u10_ftp",
+    "action": "DENY",
+    "entity_id": "u10",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T06:13:45.386583+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u10_admin",
+    "action": "DENY",
+    "entity_id": "u10",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T06:13:45.455730+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u01_ssh",
+    "action": "DENY",
+    "entity_id": "u01",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T06:31:57.225197+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u01_ftp",
+    "action": "DENY",
+    "entity_id": "u01",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T06:31:57.286091+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u01_admin",
+    "action": "DENY",
+    "entity_id": "u01",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T06:31:57.359558+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s01_ssh",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T07:00:02.729542+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s01_ftp",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T07:00:02.787714+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s01_admin",
+    "action": "DENY",
+    "entity_id": "s01",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T07:00:02.848510+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s04_ssh",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T07:14:51.047566+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s04_ftp",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T07:14:51.111841+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_s04_admin",
+    "action": "DENY",
+    "entity_id": "s04",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T07:14:51.201531+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u12_ssh",
+    "action": "DENY",
+    "entity_id": "u12",
+    "service": "ssh",
+    "protocol": "tcp",
+    "port": 22,
+    "created_at": "2026-03-01T10:21:23.460514+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u12_ftp",
+    "action": "DENY",
+    "entity_id": "u12",
+    "service": "ftp",
+    "protocol": "tcp",
+    "port": 21,
+    "created_at": "2026-03-01T10:21:23.535646+00:00",
+    "reason": "Service restriction due to elevated risk"
+  },
+  {
+    "id": "restrict_u12_admin",
+    "action": "DENY",
+    "entity_id": "u12",
+    "service": "admin",
+    "protocol": "any",
+    "port": 0,
+    "created_at": "2026-03-01T10:21:23.594703+00:00",
+    "reason": "Service restriction due to elevated risk"
+  }
+]

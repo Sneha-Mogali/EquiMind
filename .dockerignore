@@ -1,0 +1,105 @@
+# EquiMind Docker Ignore File
+# Prevents sensitive and unnecessary files from being copied to Docker images
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+docs/
+CHANGELOG*
+LICENSE*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Environment files (these should be handled via Docker secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+out/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Temporary folders
+tmp/
+temp/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets and sensitive data
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Docker files (prevent recursive copying)
+Dockerfile*
+docker-compose*
+.dockerignore

@@ -1,0 +1,46 @@
+@import './tokens.css';
+@import './animations.css';
+
+*, *::before, *::after {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%; min-height: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-base); border-radius: 2px; }
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-base);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.panel-header {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mono { font-family: var(--font-mono); }
+.display { font-family: var(--font-display); }
+
+.threat-state-bg {
+  background: #0f0006 !important;
+}
+.threat-state-bg .panel {
+  border-color: rgba(255,23,68,0.3) !important;
+}

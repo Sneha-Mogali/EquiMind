@@ -1,0 +1,140 @@
+# EquiMind - Secure Docker Compose Configuration
+
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: equimind-backend
+    restart: unless-stopped
+    
+    # Security: Use secrets for sensitive data
+    secrets:
+      - supabase_url
+      - supabase_key
+    
+    environment:
+      # Non-sensitive environment variables
+      - EVENT_INTERVAL_SECONDS=3
+      - AUTO_REMOVE_HONEYPOT_HOURS=24
+      - AUTO_REMOVE_MONITORING_HOURS=12
+      - AUTO_REMOVE_CHECK_INTERVAL=300
+      - MODEL_PATH=models/
+      - BULK_INSERT_SIZE=50
+      - BULK_INSERT_INTERVAL=120
+      
+      # Security: Reference secrets
+      - SUPABASE_URL_FILE=/run/secrets/supabase_url
+      - SUPABASE_KEY_FILE=/run/secrets/supabase_key
+    
+    ports:
+      - "8000:8000"
+    
+    volumes:
+      # Persistent storage for models and logs
+      - backend_models:/app/models
+      - backend_logs:/app/logs
+      - backend_data:/app/data
+    
+    networks:
+      - equimind-network
+    
+    # Security: Resource limits and additional security options
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+    
+    # Security: Additional container security
+    security_opt:
+      - no-new-privileges:true
+    read_only: false  # Set to true if application doesn't need write access
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+    
+    # Security: Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: equimind-frontend
+    restart: unless-stopped
+    
+    environment:
+      # Frontend configuration
+      - VITE_API_URL=http://localhost:8000
+      - VITE_WS_URL=ws://localhost:8000/ws/live
+      - VITE_USE_MOCK=false
+    
+    ports:
+      - "3000:80"
+    
+    networks:
+      - equimind-network
+    
+    depends_on:
+      - backend
+    
+    # Security: Resource limits and additional security options
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    
+    # Security: Additional container security
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=50m
+      - /var/cache/nginx:noexec,nosuid,size=50m
+      - /var/run:noexec,nosuid,size=10m
+    
+    # Security: Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+# Security: Define secrets
+secrets:
+  supabase_url:
+    file: ./secrets/supabase_url.txt
+  supabase_key:
+    file: ./secrets/supabase_key.txt
+
+# Persistent volumes
+volumes:
+  backend_models:
+    driver: local
+  backend_logs:
+    driver: local
+  backend_data:
+    driver: local
+
+# Security: Custom network
+networks:
+  equimind-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

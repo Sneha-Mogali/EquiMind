@@ -1,0 +1,524 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "equimind-zerotrust",
+    "title": "EquiMind Zero Trust Security Dashboard",
+    "tags": ["equimind", "security", "zerotrust", "ml"],
+    "style": "dark",
+    "timezone": "browser",
+    "editable": true,
+    "graphTooltip": 1,
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": ["5s", "10s", "30s", "1m", "5m"],
+      "time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
+    },
+    "refresh": "5s",
+    "schemaVersion": 27,
+    "version": 1,
+    "panels": [
+      {
+        "id": 1,
+        "gridPos": {"h": 4, "w": 4, "x": 0, "y": 0},
+        "type": "stat",
+        "title": "System Status",
+        "targets": [
+          {
+            "expr": "up{job=\"equimind-risk-engine\"}",
+            "refId": "A",
+            "legendFormat": "Backend"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "red", "value": null},
+                {"color": "green", "value": 1}
+              ]
+            },
+            "mappings": [
+              {"type": "value", "options": {"0": {"text": "DOWN", "color": "red"}}},
+              {"type": "value", "options": {"1": {"text": "UP", "color": "green"}}}
+            ]
+          }
+        },
+        "options": {
+          "graphMode": "none",
+          "colorMode": "background"
+        }
+      },
+      {
+        "id": 2,
+        "gridPos": {"h": 4, "w": 4, "x": 4, "y": 0},
+        "type": "stat",
+        "title": "Active Connections",
+        "targets": [
+          {
+            "expr": "equimind_websocket_connections",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "unit": "short"
+          }
+        },
+        "options": {
+          "graphMode": "area",
+          "colorMode": "value"
+        }
+      },
+      {
+        "id": 3,
+        "gridPos": {"h": 4, "w": 4, "x": 8, "y": 0},
+        "type": "stat",
+        "title": "Total Events",
+        "targets": [
+          {
+            "expr": "sum(equimind_events_total)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "unit": "short"
+          }
+        },
+        "options": {
+          "graphMode": "area",
+          "colorMode": "value"
+        }
+      },
+      {
+        "id": 4,
+        "gridPos": {"h": 4, "w": 4, "x": 12, "y": 0},
+        "type": "stat",
+        "title": "Blocked Events",
+        "targets": [
+          {
+            "expr": "sum(equimind_blocked_events_total)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 10},
+                {"color": "red", "value": 50}
+              ]
+            },
+            "unit": "short"
+          }
+        },
+        "options": {
+          "graphMode": "area",
+          "colorMode": "background"
+        }
+      },
+      {
+        "id": 5,
+        "gridPos": {"h": 4, "w": 4, "x": 16, "y": 0},
+        "type": "stat",
+        "title": "ML Predictions",
+        "targets": [
+          {
+            "expr": "sum(equimind_ml_predictions_total)",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "unit": "short"
+          }
+        },
+        "options": {
+          "graphMode": "area",
+          "colorMode": "value"
+        }
+      },
+      {
+        "id": 6,
+        "gridPos": {"h": 4, "w": 4, "x": 20, "y": 0},
+        "type": "stat",
+        "title": "Avg ML Latency",
+        "targets": [
+          {
+            "expr": "rate(equimind_ml_prediction_seconds_sum[5m]) / rate(equimind_ml_prediction_seconds_count[5m])",
+            "refId": "A"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 0.1},
+                {"color": "red", "value": 0.5}
+              ]
+            },
+            "unit": "s",
+            "decimals": 3
+          }
+        },
+        "options": {
+          "graphMode": "area",
+          "colorMode": "background"
+        }
+      },
+      {
+        "id": 7,
+        "gridPos": {"h": 8, "w": 8, "x": 0, "y": 4},
+        "type": "piechart",
+        "title": "Events by Severity",
+        "targets": [
+          {
+            "expr": "sum by (severity) (equimind_events_total)",
+            "refId": "A",
+            "legendFormat": "{{severity}}"
+          }
+        ],
+        "options": {
+          "legend": {
+            "displayMode": "table",
+            "placement": "right",
+            "values": ["value", "percent"]
+          },
+          "pieType": "donut"
+        }
+      },
+      {
+        "id": 8,
+        "gridPos": {"h": 8, "w": 8, "x": 8, "y": 4},
+        "type": "piechart",
+        "title": "Events by Decision",
+        "targets": [
+          {
+            "expr": "sum by (decision) (equimind_events_total)",
+            "refId": "A",
+            "legendFormat": "{{decision}}"
+          }
+        ],
+        "options": {
+          "legend": {
+            "displayMode": "table",
+            "placement": "right",
+            "values": ["value", "percent"]
+          },
+          "pieType": "donut"
+        }
+      },
+      {
+        "id": 9,
+        "gridPos": {"h": 8, "w": 8, "x": 16, "y": 4},
+        "type": "piechart",
+        "title": "Events by Attack Category",
+        "targets": [
+          {
+            "expr": "sum by (attack_category) (equimind_events_total)",
+            "refId": "A",
+            "legendFormat": "{{attack_category}}"
+          }
+        ],
+        "options": {
+          "legend": {
+            "displayMode": "table",
+            "placement": "right",
+            "values": ["value", "percent"]
+          },
+          "pieType": "pie"
+        }
+      },
+      {
+        "id": 10,
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 12},
+        "type": "timeseries",
+        "title": "Event Rate Over Time",
+        "targets": [
+          {
+            "expr": "rate(equimind_events_total[1m])",
+            "refId": "A",
+            "legendFormat": "Events/sec"
+          },
+          {
+            "expr": "rate(equimind_events_total{decision=\"BLOCK\"}[1m])",
+            "refId": "B",
+            "legendFormat": "Blocked/sec"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "custom": {
+              "axisPlacement": "auto",
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "lineWidth": 2,
+              "pointSize": 5,
+              "showPoints": "never"
+            },
+            "unit": "ops"
+          }
+        },
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "multi"
+          }
+        }
+      },
+      {
+        "id": 11,
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12},
+        "type": "timeseries",
+        "title": "ML Prediction Latency",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.50, rate(equimind_ml_prediction_seconds_bucket[5m]))",
+            "refId": "A",
+            "legendFormat": "p50"
+          },
+          {
+            "expr": "histogram_quantile(0.95, rate(equimind_ml_prediction_seconds_bucket[5m]))",
+            "refId": "B",
+            "legendFormat": "p95"
+          },
+          {
+            "expr": "histogram_quantile(0.99, rate(equimind_ml_prediction_seconds_bucket[5m]))",
+            "refId": "C",
+            "legendFormat": "p99"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "custom": {
+              "axisPlacement": "auto",
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "lineWidth": 2
+            },
+            "unit": "s"
+          }
+        },
+        "options": {
+          "legend": {
+            "displayMode": "list",
+            "placement": "bottom"
+          }
+        }
+      },
+      {
+        "id": 12,
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 20},
+        "type": "bargauge",
+        "title": "Entity Risk Scores",
+        "targets": [
+          {
+            "expr": "equimind_entity_risk_score",
+            "refId": "A",
+            "legendFormat": "{{entity_name}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "thresholds"},
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 30},
+                {"color": "orange", "value": 50},
+                {"color": "red", "value": 65},
+                {"color": "dark-red", "value": 80}
+              ]
+            },
+            "min": 0,
+            "max": 100,
+            "unit": "short"
+          }
+        },
+        "options": {
+          "orientation": "horizontal",
+          "displayMode": "gradient",
+          "showUnfilled": true
+        }
+      },
+      {
+        "id": 13,
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 28},
+        "type": "heatmap",
+        "title": "Risk Score Distribution",
+        "targets": [
+          {
+            "expr": "sum(rate(equimind_risk_score_bucket[5m])) by (le)",
+            "refId": "A",
+            "format": "heatmap",
+            "legendFormat": "{{le}}"
+          }
+        ],
+        "options": {
+          "calculate": false,
+          "cellGap": 2,
+          "color": {
+            "exponent": 0.5,
+            "fill": "dark-orange",
+            "mode": "scheme",
+            "scheme": "Spectral",
+            "steps": 128
+          },
+          "exemplars": {
+            "color": "rgba(255,0,255,0.7)"
+          },
+          "filterValues": {
+            "le": 1e-9
+          },
+          "legend": {
+            "show": true
+          },
+          "rowsFrame": {
+            "layout": "auto"
+          },
+          "tooltip": {
+            "show": true,
+            "yHistogram": false
+          },
+          "yAxis": {
+            "axisPlacement": "left",
+            "reverse": false
+          }
+        }
+      },
+      {
+        "id": 14,
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 28},
+        "type": "timeseries",
+        "title": "HTTP Request Rate",
+        "targets": [
+          {
+            "expr": "rate(equimind_requests_inprogress[1m])",
+            "refId": "A",
+            "legendFormat": "Requests/sec"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": {"mode": "palette-classic"},
+            "custom": {
+              "axisPlacement": "auto",
+              "drawStyle": "line",
+              "fillOpacity": 10,
+              "lineWidth": 2
+            },
+            "unit": "reqps"
+          }
+        }
+      },
+      {
+        "id": 15,
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 36},
+        "type": "table",
+        "title": "Top 10 High-Risk Entities",
+        "targets": [
+          {
+            "expr": "topk(10, equimind_entity_risk_score)",
+            "refId": "A",
+            "format": "table",
+            "instant": true
+          }
+        ],
+        "transformations": [
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {
+                "Time": true,
+                "__name__": true,
+                "instance": true,
+                "job": true
+              },
+              "indexByName": {
+                "entity_name": 0,
+                "entity_id": 1,
+                "Value": 2
+              },
+              "renameByName": {
+                "entity_name": "Entity Name",
+                "entity_id": "Entity ID",
+                "Value": "Risk Score"
+              }
+            }
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "align": "left",
+              "displayMode": "color-background"
+            },
+            "color": {"mode": "thresholds"},
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {"color": "green", "value": null},
+                {"color": "yellow", "value": 30},
+                {"color": "orange", "value": 50},
+                {"color": "red", "value": 65},
+                {"color": "dark-red", "value": 80}
+              ]
+            }
+          },
+          "overrides": [
+            {
+              "matcher": {"id": "byName", "options": "Risk Score"},
+              "properties": [
+                {
+                  "id": "custom.displayMode",
+                  "value": "gradient-gauge"
+                },
+                {
+                  "id": "min",
+                  "value": 0
+                },
+                {
+                  "id": "max",
+                  "value": 100
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    }
+  }
+}

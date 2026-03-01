@@ -1,0 +1,31 @@
+{
+  "id": "evt_0001",
+  "timestamp": "2024-01-15T09:31:04Z",
+  "severity": "HIGH",
+  "attack_cat": "Exploits",
+  "type": "lateral_movement",
+  "user": "j.hernandez",
+  "device": "MacBook-7F2A",
+  "src_ip": "185.220.101.45",
+  "location": "Frankfurt, DE",
+  "risk_score": 78,
+  "prev_score": 31,
+  "trust_reserve": 8,
+  "score_breakdown": {
+    "network":   42,
+    "identity":  21,
+    "device":    15,
+    "factors": [
+      { "name": "Packet rate anomaly",  "contribution": 38 },
+      { "name": "Unusual destination",  "contribution": 29 },
+      { "name": "Off-hours access",     "contribution": 18 }
+    ]
+  },
+  "decision": "BLOCK",
+  "confidence": 0.91,
+  "explanation": "Exploit pattern on lateral path. Source IP flagged. Off-hours.",
+  "kill_chain_id": "inc_042",
+  "kill_chain_step": 3,
+  "kill_chain_phase": "Exploit",
+  "model_version": "1.0.0"
+}
